@@ -1,4 +1,6 @@
 <template>
+  
+  <div v-for="day in calendar"
   <div id="app">
     <p>{{ message }}</p>
   </div>
@@ -6,7 +8,7 @@
 
 <script>
 export default {
-  props: ["message"],
+  props: ["calendar"],
 }
 </script>
 

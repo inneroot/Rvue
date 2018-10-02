@@ -1,11 +1,2 @@
 <h1>Pages#main</h1>
-<p>Find me in app/views/pages/main.html.erb</p>
-
-  <button onClick="document.getElementById('cal').scroll(200, 0);">200</button>
-  <button onClick="document.getElementById('cal').scroll(500, 0);">500</button>
-<div class="calendar" id="cal">
-  <% 1.upto(10).each do |i| %>
-    <day :message="<%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, illo.".to_json%>" 
-    :mday="<%= i.to_json%>"></day>
-  <% end %>
-</div>
+<calendar :mdays="<%=@calendar.to_json %>"></calendar>

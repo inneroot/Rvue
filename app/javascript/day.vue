@@ -18,5 +18,6 @@ export default {
     height: 150px;
     width: 200px;
     border: 1px solid black;
+    padding: 10px;
 }
 </style>

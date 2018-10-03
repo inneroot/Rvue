@@ -5,7 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oswald|Roboto|Russo+One' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
     <%= stylesheet_pack_tag 'application', media: 'all' %>
@@ -14,7 +16,15 @@
 
   <body>
     <div class="container" data-behavior="vue">
-      <%= yield %>
+      <header><%= render "/shared/navigation", cached: true  %></header>
+      <div class="alerts">
+        <div class="notice"><%= notice %></div>
+        <div class="alert"><%= alert %></div>
+      </div>
+      <main  class="page_content">
+        <%= yield %>
+      </main>
+      <footer><%= render "/shared/footer", cached: true  %></footer>
     </div>
   </body>
 </html>

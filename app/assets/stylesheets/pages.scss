@@ -1,3 +1,129 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red-color: #a0433e;
+$gray-color: #5F5F5F;
+$light-color: rgb(246, 246, 246);
+$accent: #a3241d;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  color: #a0433e;
+}
+body {
+  background: $gray-color;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+h1, h2, h3{
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+  padding-top: 2vw;
+}
+h1{
+  font-size: 40pt;
+}
+
+.shadow {
+  -moz-box-shadow:    5px 5px 12px 0px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 5px 5px 12px 0px rgba(0,0,0,0.25);
+  box-shadow:         5px 5px 12px 0px rgba(0,0,0,0.25);
+}
+.dropblackshadow{
+  text-shadow: 0 0 15px black, 0 0 10px black, 0 0 10px black, 0 0 7px black;
+}
+[data-color] hr{
+  height: 0px;
+  width: 75%;
+  outline: none;
+  border: none;
+  margin: 7px auto 3px auto;
+}
+[data-color="none"] hr{
+  border-bottom: solid 3px #aaa;
+}
+[data-color="red"] hr{
+  border-bottom: solid 3px red;
+}
+[data-color="blue"] hr{
+  border-bottom: solid 3px blue; /*#414066*/
+}
+[data-color="green"] hr{
+  border-bottom: solid 3px #86cd82;
+}
+[data-color="gold"] hr{
+  border-bottom: solid 3px #ffd700;
+}
+[data-color="purple"] hr{
+  border-bottom: solid 3px #ac16ce;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 99vh;
+  
+}
+header{
+  flex: 0;
+}
+main{
+  background-image: image-url("sobor.jpg"); 
+  background-size: cover; 
+  background-position: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+article {
+  padding: 3vh;
+  flex: 1;
+  background: transparent;
+  min-height: 30vh;
+}
+main article{
+  color: white;
+  a{
+    color: white;
+    text-decoration: none;
+  }
+}
+.calendar{
+  padding: 0 0 0 0;
+  flex: 0;
+  background: transparent;
+  .day{
+    background: white;
+    .wday{
+      font-family: 'Russo One', sans-serif;
+      padding: 3px 0 7px 0;
+    }
+  }
+}
+footer{
+  align-self: center;
+  color: white;
+  text-align: center;
+  flex: 0;
+  width: 100%;
+  height: 50px;
+  background: #5F5F5F;
+  padding: 5px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+  /* For tablets: */
+}
+@media only screen and (min-width: 1250px) {
+  /* Large devices (laptops/desktops, 992px and up) */
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1600px) {
+}

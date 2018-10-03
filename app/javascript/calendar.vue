@@ -1,15 +1,34 @@
 <template>
 <div class = "calendar_vue_instance">
   <div id="calendar_instance">
-    <button id="backbutton" @click="fastforward(-664)"><i class="fa fa-chevron-left" style="font-size:36px"></i></button>
-    <button id="forwardbutton" @click="fastforward(664)"> <i class="fa fa-chevron-right" style="font-size:36px"></i> </button>
-    <div id="scrollcontent"  @mousemove.prevent="move" @mousedown.left.prevent="down" @mouseup="up" @mouseleave="mouseLeave">
-      <div v-for="day in mdays" class="day" v-bind:id="day.mday">
-        <div>
-          <h1>{{ day.mday }}</h1>
-          <p>{{ day.saints }}</p>
-          <hr>
-          <p v-for="service in day.services">{{service.time}} - {{service.title}}</p>
+    
+    <div class="backbuttonblock">
+      <button v-show="showfullbackbitton" id="fullbackbutton" @click="scrolltozero">
+      <i class="fa fa-angle-double-left" style="font-size:36px"></i>
+      </button>
+      <button v-show="showbackbitton" id="backbutton" @click="fastforward(-332)">
+      <i class="fa fa-angle-left" style="font-size:36px"></i>
+      </button>
+    </div>
+    <div class="forwardbuttonblock">
+    <button id="forwardbutton" @click="fastforward(332)">
+      <i class="fa fa-angle-right" style="font-size:36px"></i>
+    </button>
+    </div>
+    
+    <div id="scrollcontent" 
+    @mousemove.prevent="move" @mousedown.left.prevent="down" @mouseup="up" @mouseleave="mouseLeave">
+      <div v-for="day in mdays" class="day shadow" v-bind:data-color="day.color" v-bind:id="day.mday">
+        <div class="cardhead">
+          <h2  v-html="day.mday"></h2>
+          <p v-html="day.wday" class="wday"></p>
+          <p v-html="day.saints"></p>
+        </div>
+        <div class="cardbottom">
+          <hr v-bind:class="day.color">
+          <ul>
+            <li v-for="service in day.services"><span v-html="service.time"></span> <span v-html="service.title"></span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -31,30 +50,27 @@ export default {
     return {
       drag: false,
       xStart: 0,
-      xScroll: 0,
-      
+      xScroll: 0
     };
   },
   computed: {
     scrollelement: function () {
       return document.getElementById('scrollcontent');
     },
-    
+    showbackbitton: function () {
+      return this.xScroll > 335;
+    },
+    showfullbackbitton: function () {
+      return this.xScroll > 2000;
+    },
   },
   methods: {
+    scrolltozero: function(){
+      this.scrollelement.scrollTo(0,0);
+    },
     fastforward: function (move){
-      if (move === 1) {
-        
-      }
-      if (move === -1) {
-        
-      }
       this.xScroll = this.scrollelement.scrollLeft;
       this.toscroll(-move);
-    },
-    scrolltoday: function(day){
-      var elmnt = document.getElementById(day.mday);
-      elmnt.scrollIntoView(true); 
     },
     toscroll: function(move) {
       this.scrollelement.scrollTo(this.xScroll - move, 0);
@@ -81,9 +97,9 @@ export default {
 </script>
 
 <style scoped>
-
-h1{
-  text-align: center;
+h2{
+  padding: 0;
+  margin: 0;
 }
 #calendar_instance{
   position: relative;
@@ -91,53 +107,63 @@ h1{
   height: 100%;
 }
 #scrollcontent{
+  padding-bottom: 20px;
   cursor: grab; 
   cursor : -o-grab; 
   cursor : -moz-grab; 
   cursor : -webkit-grab;
   display: flex;
   flex-wrap: nowrap;
+  align-items: start;
   overflow-x: scroll;
   scroll-behavior: smooth;
   padding-right: 0px;
+  padding-left: 10px;
 }
 .day {
-    display: block;
-    flex-shrink: 0;
-    width: 300px;
-    border: 1px solid black;
-    margin-right: 10px;
-    padding: 10px;
-}
-.buttons_pannel{
-  background: blue;
-  width: 50vw;
+  align-self: flex-end;
+  flex-shrink: 0;
+  width: 300px;
+  text-align: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  min-height: 260px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
-.buttons_pannel button{
-  background: red;
-  width: 5vw;
+.cardhead{
+  flex: 1;
+}
+.wday{
+  color: #aaa;
+  padding: 0;
+  margin: 0;
+}
+.cardbottom{
+  flex: 0;
+  font-size: 12pt;
 }
 .calendar_vue_instance{
   position: relative;
 }
-
-#backbutton{
+.backbuttonblock{
   position: absolute;
-  top:25%;
-  height: 50%;
   left: 0;
-  background: transparent;
+  top: 25%;
+  height: 50%;
 }
-#forwardbutton{
+.forwardbuttonblock{
   position: absolute;
-  top:25%;
+  top: 25%;
   height: 50%;
   right: 0;
 }
 #calendar_instance button{
-  background: rgb(0,0,0, 0.2);
+  height:100%;
+  width: 30px;
+  background: rgb(0,0,0, 0.5);
   color: white;
   border: none;
   padding: 0;
@@ -146,6 +172,16 @@ h1{
   outline: inherit;
 }
 #calendar_instance button:hover{
-  background: rgb(0,0,0, 0.5);
+  background: rgb(0,0,0, 0.8);
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+li{
+  font-size: 10pt;
+  list-style: none;
+  padding-top: 2px;
+  margin: 0;
 }
 </style>

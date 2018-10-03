@@ -1,2 +1,8 @@
-<h1>Pages#main</h1>
-<calendar :mdays="<%=@calendar.to_json %>"></calendar>
+<article class="mainpage dropblackshadow">
+  <h1>Георгиевский собор</h1>
+  <h2> г. Одинцово, Можайское шоссе 57</p>
+  <h2><a href="tel: +74955679075"><i class="fa fa-phone"></i> 8 (495) 567-90-75</a></h2>
+</article>
+<section class="calendar">
+  <calendar :mdays="<%=@calendar.to_json %>"></calendar>
+</section>

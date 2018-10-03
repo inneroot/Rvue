@@ -1,9 +1,7 @@
-<template>
-  
-  <div v-for="day in calendar"
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
+<template>  
+    <div id="app">
+      <p>{{ message }}</p>
+    </div>
 </template>
 
 <script>

@@ -12,8 +12,47 @@ $accent: #a3241d;
   padding: 0;
   box-sizing: border-box;
 }
+//a[href^="tel:"]:before{
+//  content: "" image-url("telephone-auricular-with-cable.svg"); 
+//  -webkit-filter: drop-shadow(0 0 10px gba(0,0,0,0.5));
+//  text-shadow: 0 0 15px black, 0 0 10px black, 0 0 10px black, 0 0 7px black;
+//}
+::placeholder{
+	color: #666;
+}
+::selection{
+	background-color: #a0433e;
+	color: #fff;
+}
+::-moz-selection{
+	background-color: #a0433e;
+	color: #fff;
+}
 a{
   color: #a0433e;
+}
+button{
+  text-align: center;
+  outline: none;
+  border: none;
+  background: $light-color;
+  span{
+    text-align: center;
+  }
+}
+button:focus, button:hover{
+  box-shadow: 0 0 0 3px #a0433e;
+  outline: none;
+}
+button:disabled{
+  color: #333;
+}
+.visually-hidden{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 body {
   background: $gray-color;
@@ -73,12 +112,21 @@ header{
   flex: 0;
 }
 main{
+  flex: 1;
   background-image: image-url("sobor.jpg"); 
   background-size: cover; 
   background-position: center;
-  flex: 1;
+  
   display: flex;
   flex-direction: column;
+  position: relative;
+  .alerts{
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 50%;
+    opacity: 0.9;
+  }
 }
 article {
   padding: 3vh;

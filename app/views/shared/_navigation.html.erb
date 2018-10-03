@@ -2,7 +2,7 @@
     <input type="checkbox" name="toggle" id="menu" class="toggleMenu">
     <label for="menu" class="toggleMenu"><i class="fa fa-bars"></i>Меню</label>
     <ul>
-        <li><a href="#" class="active">Главная</a></li>
+        <li><%= link_to 'Главная', root_path, class: "active"%></li>
         <li><a href="#">Новости</a></li>
         <li><a href="#">Расписание</a></li>
         <li><a href="#">Воскресная школа</a></li>

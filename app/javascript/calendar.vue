@@ -18,7 +18,7 @@
     
     <div id="scrollcontent" 
     @mousemove.prevent="move" @mousedown.left.prevent="down" @mouseup="up" @mouseleave="mouseLeave">
-      <div v-for="day in mdays" class="day shadow" v-bind:data-color="day.color" v-bind:id="day.mday">
+      <div v-for="day in mdays" class="day shadow" v-bind:data-color="day.color" v-bind:id="day.mday" v-bind:key="day.mday">
         <div class="cardhead">
           <h2  v-html="day.mday"></h2>
           <p v-html="day.wday" class="wday"></p>
@@ -26,9 +26,7 @@
         </div>
         <div class="cardbottom">
           <hr v-bind:class="day.color">
-          <ul>
-            <li v-for="service in day.services"><span v-html="service.time"></span> <span v-html="service.title"></span></li>
-          </ul>
+          <span v-html="day.services"></span>
         </div>
       </div>
     </div>
@@ -40,7 +38,7 @@
 <script>
 export default {
   props: ["mdays"],
-  mounted: () =>{
+  mounted() {
     let parent = document.getElementById('calendar_instance');
     let child = document.getElementById('scrollcontent');
     let offset = child.offsetWidth - child.clientWidth;
@@ -65,22 +63,22 @@ export default {
     },
   },
   methods: {
-    scrolltozero: function(){
+    scrolltozero(){
       this.scrollelement.scrollTo(0,0);
     },
-    fastforward: function (move){
+    fastforward(move){
       this.xScroll = this.scrollelement.scrollLeft;
       this.toscroll(-move);
     },
-    toscroll: function(move) {
+    toscroll(move) {
       this.scrollelement.scrollTo(this.xScroll - move, 0);
     },
-    down: function ($event) {
+    down($event) {
       this.drag = true;
       this.xScroll = this.scrollelement.scrollLeft;
       this.xStart = $event.clientX;
     },
-    move: function ($event) {
+    move($event) {
       if (this.drag) {
         let moved = $event.clientX - this.xStart
         this.toscroll(moved);
@@ -171,8 +169,9 @@ h2{
   cursor: pointer;
   outline: inherit;
 }
-#calendar_instance button:hover{
+#calendar_instance button:hover, button:focus{
   background: rgb(0,0,0, 0.8);
+  box-shadow: 0 0 0 3px rgb(0,0,0, 0.3);
 }
 ul{
   margin: 0;

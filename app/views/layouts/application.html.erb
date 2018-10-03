@@ -4,24 +4,28 @@
     <title>Templevue</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oswald|Roboto|Russo+One' %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>    
+
+    <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oswald|Roboto|Russo+One' %>
+
+    <%= yield :head %>
   </head>
 
   <body>
     <div class="container" data-behavior="vue">
-      <header><%= render "/shared/navigation", cached: true  %></header>
-      <div class="alerts">
-        <div class="notice"><%= notice %></div>
-        <div class="alert"><%= alert %></div>
+      <header><%= render "/shared/navigation", cached: true  %>
+      <%= render "/shared/current_user"%>
+      </header>
+      <main class="page_content">
+      <div class="alerts" >
+        <alert :alertjson="<%= {alertclass: 'alert', text: alert}.to_json %>"></alert>
+        <alert :alertjson="<%= {alertclass: 'notice', text: notice}.to_json %>"></alert>
       </div>
-      <main  class="page_content">
         <%= yield %>
       </main>
       <footer><%= render "/shared/footer", cached: true  %></footer>

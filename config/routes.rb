@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :schedules
+  devise_for :users, controllers: { registrations: "registrations"}
+  get '/admin', to: 'admin#adminpage'
+  
   root to: 'pages#main'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

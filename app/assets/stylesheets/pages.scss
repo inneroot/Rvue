@@ -7,120 +7,143 @@ $gray-color: #5F5F5F;
 $light-color: rgb(246, 246, 246);
 $accent: #a3241d;
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 //a[href^="tel:"]:before{
 //  content: "" image-url("telephone-auricular-with-cable.svg"); 
 //  -webkit-filter: drop-shadow(0 0 10px gba(0,0,0,0.5));
 //  text-shadow: 0 0 15px black, 0 0 10px black, 0 0 10px black, 0 0 7px black;
 //}
-::placeholder{
-	color: #666;
+::placeholder {
+  color: #666;
 }
-::selection{
-	background-color: #a0433e;
-	color: #fff;
+
+::selection {
+  background-color: $red-color;
+  color: #fff;
 }
-::-moz-selection{
-	background-color: #a0433e;
-	color: #fff;
+
+::-moz-selection {
+  background-color: $red-color;
+  color: #fff;
 }
-a{
-  color: #a0433e;
+
+a {
+  color: $red-color;
 }
-button{
+
+button {
   text-align: center;
   outline: none;
   border: none;
   background: $light-color;
-  span{
+
+  span {
     text-align: center;
   }
 }
-button:focus, button:hover{
-  box-shadow: 0 0 0 3px #a0433e;
+
+button:focus,
+button:hover {
+  box-shadow: 0 0 0 3px $red-color;
   outline: none;
 }
-button:disabled{
+
+button:disabled {
   color: #333;
 }
-.visually-hidden{
+
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
+
 body {
-  background: $gray-color;
+  background: $light-color;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
-h1, h2, h3{
+
+h1,
+h2,
+h3 {
   font-family: 'Oswald', sans-serif;
   margin: 0;
   padding-top: 2vw;
 }
-h1{
+
+h1 {
   font-size: 40pt;
 }
 
 .shadow {
-  -moz-box-shadow:    5px 5px 12px 0px rgba(0,0,0,0.25);
-  -webkit-box-shadow: 5px 5px 12px 0px rgba(0,0,0,0.25);
-  box-shadow:         5px 5px 12px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 5px 5px 12px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 5px 5px 12px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 5px 5px 12px 0px rgba(0, 0, 0, 0.25);
 }
-.dropblackshadow{
+
+.dropblackshadow {
   text-shadow: 0 0 15px black, 0 0 10px black, 0 0 10px black, 0 0 7px black;
 }
-[data-color] hr{
+
+[data-color] hr {
   height: 0px;
   width: 75%;
   outline: none;
   border: none;
   margin: 7px auto 3px auto;
 }
-[data-color="none"] hr{
+
+[data-color="none"] hr {
   border-bottom: solid 3px #aaa;
 }
-[data-color="red"] hr{
+
+[data-color="red"] hr {
   border-bottom: solid 3px red;
 }
-[data-color="blue"] hr{
-  border-bottom: solid 3px blue; /*#414066*/
+
+[data-color="blue"] hr {
+  border-bottom: solid 3px blue;
+  /*#414066*/
 }
-[data-color="green"] hr{
+
+[data-color="green"] hr {
   border-bottom: solid 3px #86cd82;
 }
-[data-color="gold"] hr{
+
+[data-color="gold"] hr {
   border-bottom: solid 3px #ffd700;
 }
-[data-color="purple"] hr{
+
+[data-color="purple"] hr {
   border-bottom: solid 3px #ac16ce;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
-  min-height: 99vh;
-  
+  min-height: 100vh;
+
 }
-header{
+
+header {
   flex: 0;
 }
-main{
+
+main {
   flex: 1;
-  background-image: image-url("sobor.jpg"); 
-  background-size: cover; 
-  background-position: center;
-  
   display: flex;
   flex-direction: column;
   position: relative;
-  .alerts{
+
+  .alerts {
     position: absolute;
     top: 0;
     left: 25%;
@@ -128,32 +151,61 @@ main{
     opacity: 0.9;
   }
 }
+.notice{
+  background: #11998e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.alert{
+  background: #ED213A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 article {
+
   padding: 3vh;
   flex: 1;
   background: transparent;
   min-height: 30vh;
 }
-main article{
-  color: white;
-  a{
+
+main article {
+  background-repeat: no-repeat;
+  background-position: right;
+
+  a {
     color: white;
     text-decoration: none;
   }
 }
-.calendar{
+
+#mainpage{
+  background-image: image-url("sobor3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  article{
+    color: $light-color;
+  }  
+}
+
+.calendar {
   padding: 0 0 0 0;
   flex: 0;
   background: transparent;
-  .day{
+
+  .day {
     background: white;
-    .wday{
+
+    .wday {
       font-family: 'Russo One', sans-serif;
       padding: 3px 0 7px 0;
     }
   }
 }
-footer{
+
+footer {
   align-self: center;
   color: white;
   text-align: center;
@@ -169,9 +221,10 @@ footer{
 @media only screen and (min-width: 768px) {
   /* For tablets: */
 }
+
 @media only screen and (min-width: 1250px) {
   /* Large devices (laptops/desktops, 992px and up) */
 }
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1600px) {
-}
+@media only screen and (min-width: 1600px) {}

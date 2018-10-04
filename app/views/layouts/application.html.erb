@@ -17,14 +17,16 @@
   </head>
 
   <body>
-    <div class="container" data-behavior="vue">
+    <div class="container">
       <header><%= render "/shared/navigation", cached: true  %>
       <%= render "/shared/current_user"%>
       </header>
-      <main class="page_content">
-      <div class="alerts" >
-        <alert :alertjson="<%= {alertclass: 'alert', text: alert}.to_json %>"></alert>
-        <alert :alertjson="<%= {alertclass: 'notice', text: notice}.to_json %>"></alert>
+      <main <%= yield :maintag %> >
+      <div class="alerts">
+        <!--alert :alertjson="<%= {alertclass: 'alert', text: alert}.to_json %>"></alert>
+        <alert :alertjson="<%= {alertclass: 'notice', text: notice}.to_json %>"></alert-->
+        <div class="notice"><%= notice %></div>
+        <div class="alert"><%= alert %></div>
       </div>
         <%= yield %>
       </main>

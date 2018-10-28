@@ -29,8 +29,7 @@
           <span v-html="day.services"></span>
         </div>
       </div>
-    </div>
-    
+    </div>    
   </div>
 </div>
 </template>
@@ -182,5 +181,8 @@ li{
   list-style: none;
   padding-top: 2px;
   margin: 0;
+}
+hr{
+  width: 75%;
 }
 </style>

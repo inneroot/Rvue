@@ -1,23 +1,23 @@
 <template>
-  <div class="day">
-    <h1>{{ mday }}</h1>
-    <p>{{ message }}</p>
+  <div  v-bind:data-color="oneday.color" v-bind:id="oneday.mday" v-bind:key="oneday.mday">
+    <div>
+      <h2  v-html="oneday.mday"></h2>
+      <p v-html="oneday.wday"></p>
+      <p v-html="oneday.saints"></p>
+    </div>
+    <div>
+      <hr v-bind:class="oneday.color">
+      <span v-html="oneday.services"></span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["message", "mday"],
+  props: ["oneday"],
 }
 </script>
 
 <style scoped>
-.day {
-    display: block;
-    flex-shrink: 0;
-    height: 150px;
-    width: 200px;
-    border: 1px solid black;
-    padding: 10px;
-}
+
 </style>

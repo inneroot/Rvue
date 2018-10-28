@@ -36,10 +36,10 @@
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c9c9c9+0,f6f6f6+2,c4c5c7+98,757577+100;Custom+3 */
   background: #5F5F5F; /* Old browsers */
   padding: 15px 30px 15px 30px;
-  font-size: 14px;
+  font-size: 18px;
   color: white;
   text-decoration: none;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   transition: all 0.3s ease;
 }
 .dws-menu li a:hover{
@@ -82,7 +82,7 @@
   background: rgb(201,201,201); /* Old browsers */
   display: none;
   padding: 15px 40px;
-  text-transform: uppercase;
+  //text-transform: uppercase;
   font-size: 14px;
   cursor: pointer;
   position: relative;
@@ -149,4 +149,3 @@
     color: #ffffff;
   }
 }
-

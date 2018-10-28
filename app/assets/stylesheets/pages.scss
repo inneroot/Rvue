@@ -95,7 +95,6 @@ h1 {
 
 [data-color] hr {
   height: 0px;
-  width: 75%;
   outline: none;
   border: none;
   margin: 7px auto 3px auto;
@@ -135,13 +134,19 @@ h1 {
 
 header {
   flex: 0;
+  z-index: 10;
 }
 
 main {
+  padding: 3vw 5vw;
   flex: 1;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  p{
+    margin-top: 3vw;
+  }
 
   .alerts {
     position: absolute;
@@ -163,7 +168,6 @@ main {
 }
 
 article {
-
   padding: 3vh;
   flex: 1;
   background: transparent;
@@ -185,8 +189,12 @@ main article {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  article{
+  article{    
     color: $light-color;
+  }
+  section{
+    //background-image: image-url("2px.png");
+    background-repeat: repeat;
   }  
 }
 

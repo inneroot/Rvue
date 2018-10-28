@@ -17,3 +17,7 @@
 //= require cable
 //= require ckeditor/init
 //= require_tree .
+
+$('.ckeditor').ckeditor({
+  // optional config
+});
